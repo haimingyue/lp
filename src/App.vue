@@ -13,11 +13,11 @@
           :router="router"
         >
           <el-menu-item index="/">首页</el-menu-item>
-          <el-menu-item index="/news">新闻资讯</el-menu-item>
+          <!-- <el-menu-item index="/news">新闻资讯</el-menu-item> -->
           <el-menu-item index="/product">产品中心</el-menu-item>
-          <el-menu-item index="/case">经典案例</el-menu-item>
-          <el-menu-item index="/goin">走进科建</el-menu-item>
-          <el-menu-item index="/download">下载APP</el-menu-item>
+          <!-- <el-menu-item index="/case">经典案例</el-menu-item> -->
+          <el-menu-item index="/goin">走进普石</el-menu-item>
+          <!-- <el-menu-item index="/download">下载APP</el-menu-item> -->
         </el-menu>
       </el-header>
       <el-main>
@@ -26,25 +26,25 @@
       <div class="footer" v-show="isShow">
         <div class="footer-content">
           <ul class="content-nav">
-            <li>
+            <!-- <li>
               <p>走进科建</p>
               <span>发展历程</span>
               <span>企业文化</span>
               <span>资质荣誉</span>
               <span>合作伙伴</span>
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
               <p>新闻资讯</p>
               <span>公司新闻</span>
               <span>行业动态</span>
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
               <p>产品中心</p>
               <span>介绍视频</span>
               <span>管理模式</span>
               <span>平台目标</span>
               <span>功能模块</span>
-            </li>
+            </li> -->
             <li>
               <p>联系我们</p>
               <span>邮箱：kejianlml@163.com</span>
