@@ -114,7 +114,7 @@ import Banner from "../components/Banner";
 export default {
   data() {
     return {
-      loading: true,
+      loading: false,
       videoSrc: "http://www.shkjem.com/video/kj.mp4",
       playerOptions: {
         playbackRates: [0.5, 1.0, 1.5, 2.0, 4.0, 8.0], //可选择的播放速度
@@ -147,18 +147,20 @@ export default {
     Banner
   },
   created() {
-    this.$http
-      .get(
-        "DataDictionary/GetDataDictionaryAll?key=%E4%BA%A7%E5%93%81%E8%A7%86%E9%A2%91%E9%93%BE%E6%8E%A5"
-      )
-      .then(response => {
-        this.videoSrc = response.data[0].Content;
-        window.console.log(this.videoSrc);
-        this.loading = false;
-      })
-      .catch(function(error) {
-        window.console.log(error);
-      });
+    // this.$http
+    //   .get(
+    //     "DataDictionary/GetDataDictionaryAll?key=%E4%BA%A7%E5%93%81%E8%A7%86%E9%A2%91%E9%93%BE%E6%8E%A5"
+    //   )
+    //   .then(response => {
+    //     console.log(JSON.stringify(response.data[0].Content));
+    //     // this.videoSrc = response.data[0].Content;
+    //     // window.console.log(this.videoSrc);
+    //     // this.loading = false;
+    //   })
+    //   .catch(function(error) {
+    //     window.console.log(error);
+    //   });
+    this.videoSrc = "http://www.shkjem.com/video/kj.mp4"
   }
 };
 </script>

@@ -123,18 +123,24 @@ export default {
     }
   },
   mounted() {
-    this.$http
-      .all([
-        this.$http.get("Cases/GetCasesAll"),
-        this.$http.get(`News?type=1&num=3`)
-      ])
-      .then(
-        this.$http.spread((responseCases, responseNews) => {
-          this.caseList = responseCases.data;
-          this.newsList = responseNews.data;
-          this.loading = false;
-        })
-      );
+    // this.$http
+    //   .all([
+    //     this.$http.get("Cases/GetCasesAll"),
+    //     this.$http.get(`News?type=1&num=3`)
+    //   ])
+    //   .then(
+    //     this.$http.spread((responseCases, responseNews) => {
+    //       console.log('responseCases.data', JSON.stringify(responseCases.data))
+    //       console.log('responseCases.data', JSON.stringify(responseNews.data))
+    //       this.caseList = responseCases.data;
+    //       this.newsList = responseNews.data;
+    //       this.loading = false;
+    //     })
+    //   );
+      this.caseList = 
+        [{"Id":29,"Img":"/imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg","Title":"上海市公共安全教育实训基地项目位","Content":"位于上海市青浦区沪青平公路6888号“东方绿舟”东南 角，四界范围为：东临城市河道，南至沪青平公路，西界绿湖路，北靠现有的东方绿舟停机 坪。项目用地面积65048平方米（以实测为准），新建总建筑面积约为26467平方米（地上 23500平方米，地下2967平方米）","Del":null,"CreateTime":"2020-06-05T21:12:45.387"},{"Id":28,"Img":"/imagestore/2020/0605/fcebfcd1-7b8c-4214-9fc4-c9c275ccaaf0.jpg","Title":"高端装备用特种电缆检测评估服务基地","Content":"高端装备用特种电缆检测评估服务基地建设 一期工程位于上海市宝山区山连路558号， 项目建筑面积为19324.03平方米（地上建 筑面积为15446.74平方米，地下建筑面积\n为3877.29平方米）。","Del":null,"CreateTime":"2020-06-05T21:05:45.157"},{"Id":27,"Img":"/imagestore/2020/0605/e6cad4d5-0f76-4241-a112-8660acf8c281.jpg","Title":"中国移动上海公司临港数据中心","Content":"上海移动临港IDC研发与产业化基地项目一 期数据中心2#机楼微模块机房配套工程","Del":null,"CreateTime":"2020-06-05T21:02:05.567"},{"Id":26,"Img":"/imagestore/2020/0605/0c6fa4a8-94da-4fc5-bac4-76c59d52c2b2.jpg","Title":"上海合作组织国际司法交流培训基地项目","Content":"上海合作组织国际司法交流合作培训基地（上海政法学院）工程位于松江区泗陈公路5488号\n上海政法学院东南部，项目用地面积66125平方米（以实测为准），新建总建筑面积约为 24976平方米，其中地上建筑面积为22476平方米，地下建筑面积约为2500平方米。","Del":null,"CreateTime":"2020-06-05T20:58:05.57"}]
+      this.newsList = [{"Id":19,"Title":"热烈祝贺上海科建获得上海市工程监理资质","Img":"/imagestore/2018/0917/98c71315-86dc-4c99-b973-c89136bd8885.jpg","Type":1,"Content":"      热烈祝贺上海科建工程管理股份有限公司获得上海市工程监理资质证书(房屋建筑工程和市政公用工程）!","CreateTime":"2018-09-17T19:46:46.673"},{"Id":15,"Title":"上海科建工程管理有限公司科创板创立大会顺利召开","Img":"/imagestore/2018/0529/d3f75b1c-cb7e-488f-95ac-8f80f5c332fe.jpg","Type":1,"Content":"历时2个月的企业经营财务状况梳理及企业内部日常行政运营工作，通过法律法规整合管理，企业各大部门如财务、运营、项目管理、技术研发，都形成了各自的工作流程，各部门相互配合，为科建今后工程管理标准化软件的广泛使用，为成为项目管理行业的佼佼者努力。2018年3月12日上午10时上海科建工程管理股份有限公司创立大会暨2018年第一次临时股东大会顺利召开。","CreateTime":"2018-07-23T16:24:11.633"}];
+      this.loading = false;
   }
 };
 </script>
