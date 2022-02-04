@@ -1,109 +1,9 @@
 <template>
   <div class="product">
     <banner img="../assets/img/bgtop.jpg" title="产品中心" />
-    <div class="product-content" v-loading="loading">
-      <div class="p-video">
-        <video-player
-          class="video-player vjs-custom-skin"
-          ref="videoPlayer"
-          :playsinline="true"
-          :options="playerOptions"
-        ></video-player>
-      </div>
-      <div class="lacking">
-        <h3 class="title">传统管理模式不足</h3>
-        <div class="lacking-bottom">
-          <div class="lacking-bottom-item">
-            <div class="lacking-bottom-item-img">
-              <img src="../assets/img/product-group-icon_3.png" alt />
-            </div>
-            <p>质量检查、安全检查以抽查为主，难免存在遗漏，留下质量安全隐患。</p>
-          </div>
-
-          <div class="lacking-bottom-item">
-            <div class="lacking-bottom-item-img">
-              <img src="../assets/img/product-group-icon_2.png" alt />
-            </div>
-            <p>数据统计、数据分析的缺失，无法为统计、分析、项目评估等工作提供数据支撑。</p>
-          </div>
-
-          <div class="lacking-bottom-item">
-            <div class="lacking-bottom-item-img">
-              <img src="../assets/img/product-group-icon_1.png" alt />
-            </div>
-            <p>检查工作和检查记录文件脱节，无法做到同步对应；缺少影像文档，无法做到可追溯性。</p>
-          </div>
-        </div>
-      </div>
-      <!-- 平台目标 -->
-      <div class="target">
-        <h3 class="title">平台目标</h3>
-        <p class="eTitle">TARGET</p>
-        <div class="target-img">
-          <img src="../assets/img/product_group_3_img.png" alt />
-        </div>
-      </div>
-      <!--功能模块  -->
-      <div class="modular">
-        <h3 class="title">功能模块</h3>
-        <p class="eTitle">MODULAR</p>
-        <div class="modular-content">
-          <div class="modular-content-same">
-            <div class="same-item">
-              <div class="same-item-img">
-                <img src="../assets/img/product-group_4-icon_1.png" alt />
-              </div>
-              <p>质量控制模块</p>
-            </div>
-            <div class="same-item">
-              <div class="same-item-img">
-                <img src="../assets/img/product-group_4-icon_2.png" alt />
-              </div>
-              <p>知识仓库模块</p>
-            </div>
-            <div class="same-item">
-              <div class="same-item-img">
-                <img src="../assets/img/product-group_4-icon_3.png" alt />
-              </div>
-              <p>信息流程模块</p>
-            </div>
-            <div class="same-item">
-              <div class="same-item-img">
-                <img src="../assets/img/product-group_4-icon_1.png" alt />
-              </div>
-              <p>定位复核模块</p>
-            </div>
-          </div>
-          <div class="modular-content-center">
-            <img src="../assets/img/product_group_4_img.png" alt />
-          </div>
-          <div class="modular-content-same">
-            <div class="same-item">
-              <p>信息处理模块</p>
-              <div class="same-item-img">
-                <img src="../assets/img/product-group_4-icon_5.png" alt />
-              </div>
-            </div>
-            <div class="same-item">
-              <p>材料设备模块</p>
-              <div class="same-item-img">
-                <img src="../assets/img/product-group_4-icon_6.png" alt />
-              </div>
-            </div>
-            <div class="same-item">
-              <p>进度控制模块</p>
-              <div class="same-item-img">
-                <img src="../assets/img/product-group_4-icon_7.png" alt />
-              </div>
-            </div>
-            <div class="same-item">
-              <p>安全管理模块</p>
-              <div class="same-item-img">
-                <img src="../assets/img/product-group_4-icon_8.png" alt />
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="product-content">
+      <div v-for="item in productList" :key="item.id" class="product-item">
+        <img :src="item.url" alt="">
       </div>
     </div>
   </div>
@@ -116,32 +16,272 @@ export default {
     return {
       loading: false,
       videoSrc: "http://www.shkjem.com/video/kj.mp4",
-      playerOptions: {
-        playbackRates: [0.5, 1.0, 1.5, 2.0, 4.0, 8.0], //可选择的播放速度
-        autoplay: false, //如果true,浏览器准备好时开始回放。
-        muted: false, // 默认情况下将会消除任何音频。
-        loop: false, // 视频一结束就重新开始。
-        preload: "auto", // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
-        language: "zh-CN",
-        aspectRatio: "16:9", // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
-        fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
-        sources: [
-          {
-            type: "",
-            src: "http://www.shkjem.com/video/kj.mp4" //url地址
-          }
-        ],
-        //poster: "../assets/img/home_top.jpg", //你的封面地址
-        // width: document.documentElement.clientWidth,
-        notSupportedMessage: "此视频暂无法播放，请稍后再试", //允许覆盖Video.js无法播放媒体源时显示的默认信息。
-        controlBar: {
-          timeDivider: true, //当前时间和持续时间的分隔符
-          durationDisplay: true, //显示持续时间
-          remainingTimeDisplay: false, //是否显示剩余时间功能
-          fullscreenToggle: true //全屏按钮
-        }
-      }
-    };
+      productList: [
+        {
+          id: 0,
+          url: require('../assets/img/ps/pscp_img0.jpg')
+        },
+        {
+          id: 1,
+          url: require('../assets/img/ps/pscp_img1.jpg')
+        },
+        {
+          id: 2,
+          url: require('../assets/img/ps/pscp_img2.jpg')
+        },
+        {
+          id: 3,
+          url: require('../assets/img/ps/pscp_img3.jpg')
+        },
+        {
+          id: 4,
+          url: require('../assets/img/ps/pscp_img4.jpg')
+        },
+        {
+          id: 5,
+          url: require('../assets/img/ps/pscp_img5.jpg')
+        },
+        {
+          id: 6,
+          url: require('../assets/img/ps/pscp_img6.jpg')
+        },
+        {
+          id: 7,
+          url: require('../assets/img/ps/pscp_img7.jpg')
+        },
+        {
+          id: 8,
+          url: require('../assets/img/ps/pscp_img8.jpg')
+        },
+        {
+          id: 9,
+          url: require('../assets/img/ps/pscp_img9.jpg')
+        },
+        {
+          id: 10,
+          url: require('../assets/img/ps/pscp_img10.jpg')
+        },
+        {
+          id: 11,
+          url: require('../assets/img/ps/pscp_img11.jpg')
+        },
+        {
+          id: 12,
+          url: require('../assets/img/ps/pscp_img12.jpg')
+        },
+        {
+          id: 13,
+          url: require('../assets/img/ps/pscp_img13.jpg')
+        },
+        {
+          id: 14,
+          url: require('../assets/img/ps/pscp_img14.jpg')
+        },
+        {
+          id: 15,
+          url: require('../assets/img/ps/pscp_img15.jpg')
+        },
+        {
+          id: 16,
+          url: require('../assets/img/ps/pscp_img16.jpg')
+        },
+        {
+          id: 17,
+          url: require('../assets/img/ps/pscp_img17.jpg')
+        },
+        {
+          id: 18,
+          url: require('../assets/img/ps/pscp_img18.jpg')
+        },
+        {
+          id: 19,
+          url: require('../assets/img/ps/pscp_img19.jpg')
+        },
+        {
+          id: 20,
+          url: require('../assets/img/ps/pscp_img20.jpg')
+        },
+        {
+          id: 21,
+          url: require('../assets/img/ps/pscp_img21.jpg')
+        },
+        {
+          id: 22,
+          url: require('../assets/img/ps/pscp_img22.jpg')
+        },
+        {
+          id: 23,
+          url: require('../assets/img/ps/pscp_img23.jpg')
+        },
+        {
+          id: 24,
+          url: require('../assets/img/ps/pscp_img24.jpg')
+        },
+        {
+          id: 25,
+          url: require('../assets/img/ps/pscp_img25.jpg')
+        },
+        {
+          id: 26,
+          url: require('../assets/img/ps/pscp_img26.jpg')
+        },
+        {
+          id: 27,
+          url: require('../assets/img/ps/pscp_img27.jpg')
+        },
+        {
+          id: 28,
+          url: require('../assets/img/ps/pscp_img28.jpg')
+        },
+        {
+          id: 29,
+          url: require('../assets/img/ps/pscp_img29.jpg')
+        },
+        {
+          id: 30,
+          url: require('../assets/img/ps/pscp_img30.jpg')
+        },
+        {
+          id: 31,
+          url: require('../assets/img/ps/pscp_img31.jpg')
+        },
+        {
+          id: 32,
+          url: require('../assets/img/ps/pscp_img32.jpg')
+        },
+        {
+          id: 33,
+          url: require('../assets/img/ps/pscp_img33.jpg')
+        },
+        {
+          id: 34,
+          url: require('../assets/img/ps/pscp_img34.jpg')
+        },
+        {
+          id: 35,
+          url: require('../assets/img/ps/pscp_img35.jpg')
+        },
+        {
+          id: 36,
+          url: require('../assets/img/ps/pscp_img36.jpg')
+        },
+        {
+          id: 37,
+          url: require('../assets/img/ps/pscp_img37.jpg')
+        },
+        {
+          id: 38,
+          url: require('../assets/img/ps/pscp_img38.jpg')
+        },
+        {
+          id: 39,
+          url: require('../assets/img/ps/pscp_img39.jpg')
+        },
+        {
+          id: 40,
+          url: require('../assets/img/ps/pscp_img40.jpg')
+        },
+        {
+          id: 41,
+          url: require('../assets/img/ps/pscp_img41.jpg')
+        },
+        {
+          id: 42,
+          url: require('../assets/img/ps/pscp_img42.jpg')
+        },
+        {
+          id: 43,
+          url: require('../assets/img/ps/pscp_img43.jpg')
+        },
+        {
+          id: 44,
+          url: require('../assets/img/ps/pscp_img44.jpg')
+        },
+        {
+          id: 45,
+          url: require('../assets/img/ps/pscp_img45.jpg')
+        },
+        {
+          id: 46,
+          url: require('../assets/img/ps/pscp_img46.jpg')
+        },
+        {
+          id: 47,
+          url: require('../assets/img/ps/pscp_img47.jpg')
+        },
+        {
+          id: 48,
+          url: require('../assets/img/ps/pscp_img48.jpg')
+        },
+        {
+          id: 49,
+          url: require('../assets/img/ps/pscp_img49.jpg')
+        },
+        {
+          id: 50,
+          url: require('../assets/img/ps/pscp_img50.jpg')
+        },
+        {
+          id: 51,
+          url: require('../assets/img/ps/pscp_img51.jpg')
+        },
+        {
+          id: 52,
+          url: require('../assets/img/ps/pscp_img52.jpg')
+        },
+        {
+          id: 53,
+          url: require('../assets/img/ps/pscp_img53.jpg')
+        },
+        {
+          id: 54,
+          url: require('../assets/img/ps/pscp_img54.jpg')
+        },
+        {
+          id: 55,
+          url: require('../assets/img/ps/pscp_img55.jpg')
+        },
+        {
+          id: 56,
+          url: require('../assets/img/ps/pscp_img56.jpg')
+        },
+        {
+          id: 57,
+          url: require('../assets/img/ps/pscp_img57.jpg')
+        },
+        // {
+        //   id: 58,
+        //   url: require('../assets/img/ps/pscp_img58.jpg')
+        // }
+
+      ],
+    }
+    //   playerOptions: {
+    //     playbackRates: [0.5, 1.0, 1.5, 2.0, 4.0, 8.0], //可选择的播放速度
+    //     autoplay: false, //如果true,浏览器准备好时开始回放。
+    //     muted: false, // 默认情况下将会消除任何音频。
+    //     loop: false, // 视频一结束就重新开始。
+    //     preload: "auto", // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
+    //     language: "zh-CN",
+    //     aspectRatio: "16:9", // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
+    //     fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
+    //     sources: [
+    //       {
+    //         type: "",
+    //         src: "http://www.shkjem.com/video/kj.mp4" //url地址
+    //       }
+    //     ],
+    //     //poster: "../assets/img/home_top.jpg", //你的封面地址
+    //     // width: document.documentElement.clientWidth,
+    //     notSupportedMessage: "此视频暂无法播放，请稍后再试", //允许覆盖Video.js无法播放媒体源时显示的默认信息。
+    //     controlBar: {
+    //       timeDivider: true, //当前时间和持续时间的分隔符
+    //       durationDisplay: true, //显示持续时间
+    //       remainingTimeDisplay: false, //是否显示剩余时间功能
+    //       fullscreenToggle: true //全屏按钮
+    //     }
+    //   }
+    // };
   },
   components: {
     Banner
@@ -173,114 +313,25 @@ export default {
 }
 
 .product-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   width: 1240px;
   margin: 0 auto;
+  padding: 10px;
   background-color: #fff;
 }
 
-.p-video {
-  width: 1000px;
-  margin: 0 auto;
-  padding: 60px 0;
-}
-
-//传统管理模式不足
-.lacking {
-  height: 420px;
-  padding: 20px 0;
-  //margin: 20px 0;
-
-  .lacking-bottom {
-    display: flex;
-    justify-content: space-around;
-    padding: 100px 100px;
-
-    .lacking-bottom-item {
-      width: 200px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      //justify-content: center;
-
-      .lacking-bottom-item-img {
-        width: 120px;
-        height: 120px;
-        background: #1667a0;
-        border-radius: 50%;
-        overflow: hidden;
-        line-height: 160px;
-      }
-    }
-    p {
-      font-size: 16px;
-      text-align: start;
-      margin: 10px 0;
-    }
+.product-item {
+  margin-bottom: 5px;
+  width: 33%;
+  height: 280px;
+  &:nth-child(3n) {
+    margin-right: 0;
   }
-}
-
-//平台目标
-.target {
-  margin-top: 50px;
-  &-img {
-    margin-top: 50px;
-    text-align: center;
-  }
-}
-
-//
-.modular {
-  margin-top: 50px;
-  .modular-content {
-    padding: 50px 50px;
-    display: flex;
-    justify-content: space-around;
-  }
-}
-.modular-content-same {
-  width: 182px;
-  height: 405px;
-
-  .same-item {
-    height: 70px;
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-
-    .same-item-img {
-      width: 70px;
-      height: 70px;
-      line-height: 100px;
-      background: #1667a0;
-      border-radius: 50%;
-      text-align: center;
-    }
-    p {
-      color: #1667a0;
-      font-weight: 700;
-      line-height: 70px;
-    }
-  }
-}
-
-.modular-content-center {
-  width: 355px;
-  height: 355px;
   img {
+    height: 100%;
     width: 100%;
   }
-}
-//公共样式
-.title,
-.eTitle {
-  font-size: 34px;
-  font-weight: 400;
-  color: #333;
-  text-align: center;
-}
-.eTitle {
-  font-size: 30px;
-  padding: 10px 0;
 }
 </style>
