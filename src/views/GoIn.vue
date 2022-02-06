@@ -62,7 +62,7 @@
           <span>确保工程管理留下痕迹、实施过程可追溯</span>
         </div>
         <!-- 公司荣誉 -->
-        <div class="content-honor">
+        <!-- <div class="content-honor">
           <div class="honor-big-img">
             <el-dialog :title="dialogTitle" :visible.sync="dialogTableVisible">
               <img v-lazy="dialogUrl" alt />
@@ -82,9 +82,9 @@
             </li>
           </ul>
           <p>点击图片查看大图</p>
-        </div>
+        </div> -->
         <!-- 团队风采 -->
-        <div class="content-team">
+        <!-- <div class="content-team">
           <div class="top">
             <h3>团队风采</h3>
             <p>TEAM</p>
@@ -94,9 +94,9 @@
               <div class="swiper-img" v-lazy:background-image="imgserver + team.Img"></div>
             </el-carousel-item>
           </el-carousel>
-        </div>
+        </div> -->
         <!-- 合作伙伴 -->
-        <div class="content-partner">
+        <!-- <div class="content-partner">
           <div class="top">
             <h3>合作伙伴</h3>
             <p>RARTNERS</p>
@@ -106,7 +106,7 @@
               </li>
             </ul>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -114,12 +114,12 @@
 
 <script>
 import Banner from "../components/Banner";
-import { swiper, swiperSlide } from "vue-awesome-swiper";
+// import { swiper, swiperSlide } from "vue-awesome-swiper";
 export default {
   components: {
     Banner,
-    swiper,
-    swiperSlide
+    // swiper,
+    // swiperSlide
   },
   data() {
     return {

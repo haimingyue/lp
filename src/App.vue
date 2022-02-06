@@ -3,7 +3,7 @@
     <el-container>
       <el-header>
         <div class="logo">
-          <img src="./assets/img/toplogo.png" alt />
+          <img style="width: 120px;" src="./assets/img/pscp_logo.jpg" alt />
         </div>
         <el-menu
           :default-active="defaultActive"
@@ -47,16 +47,16 @@
             </li> -->
             <li>
               <p>联系我们</p>
-              <span>邮箱：kejianlml@163.com</span>
-              <span>电话：021-55802368</span>
-              <span>地址：上海市杨浦区翔殷路128号12号楼101</span>
+              <span>手机：13966578850 / 17354120681</span>
+              <!-- <span>电话：021-55802368</span> -->
+              <span>地址：安徽省阜阳市界首市西城工业园区</span>
             </li>
           </ul>
-          <img src="./assets/img/ercode.png" alt />
+          <!-- <img src="./assets/img/ercode.png" alt /> -->
         </div>
-        <div class="copyright">
-          <span>科建版权所有</span>
-        </div>
+        <!-- <div class="copyright">
+          <span>普石版权所有</span>
+        </div> -->
       </div>
     </el-container>
   </div>

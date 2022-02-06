@@ -19,7 +19,7 @@
             :key="index"
             v-lazy:background-image="item.Img"
           >
-            <router-link
+            <!-- <router-link
               class="text-decoration"
               :to="{ name: 'casedetails', params: { id: item.Id }}"
             >
@@ -30,7 +30,7 @@
                   <span>MORE</span>
                 </div>
               </div>
-            </router-link>
+            </router-link> -->
           </li>
         </ul>
       </swiper-slide>
